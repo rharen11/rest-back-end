@@ -9,8 +9,10 @@ const router = Router()
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-// router.get('/', checkAuth, projectsCtrl.index)
+router.get('/', checkAuth, daysCtrl.index)
 router.post('/', checkAuth, daysCtrl.create)
+router.post('/:id/schedules', checkAuth, daysCtrl.createSchedule)
+router.get('/:id/schedules', checkAuth, daysCtrl.findScheduleById)
 
 
 export { router }
