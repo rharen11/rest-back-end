@@ -20,8 +20,8 @@ app.use(formData.parse())
 
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('/projects', projectsRouter)
-app.use('/days', daysRouter)
+app.use('/api/projects', projectsRouter)
+app.use('/api/days', daysRouter)
 
 
 app.use(function (req, res, next) {
