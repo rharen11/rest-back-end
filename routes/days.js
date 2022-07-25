@@ -12,7 +12,7 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, daysCtrl.index)
 router.post('/', checkAuth, daysCtrl.create)
 router.post('/:id/schedules', checkAuth, daysCtrl.createSchedule)
-router.get('/:id/schedules', checkAuth, daysCtrl.findScheduleById)
+router.delete('/:id/schedules/:schedId', checkAuth, daysCtrl.deleteSched)
 
 
 export { router }

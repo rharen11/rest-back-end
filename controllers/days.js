@@ -23,7 +23,6 @@ const create = async (req, res) => {
 
 function createSchedule(req, res){
   Day.findById(req.params.id)
-  // console.log(req.params.id)
   .then(day => {
     Profile.findById(req.user.profile)
     .then(profile => {
@@ -39,10 +38,12 @@ function createSchedule(req, res){
   })
 }
 
-function findScheduleById(req, res){
-  Day.findOne({id: req.params.id})
+function deleteSched(req, res){
+  Day.findById(req.params.id)
   .then(day => {
-    res.json(day)
+    day.schedules.remove({_id: req.params.schedId})
+    day.save()
+    .then(updatedSched => res.json(updatedSched))
   })
   .catch(err => {
     console.log(err)
@@ -56,5 +57,5 @@ export {
   index,
   create,
   createSchedule,
-  findScheduleById
+  deleteSched
 }

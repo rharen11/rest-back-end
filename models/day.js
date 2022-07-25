@@ -12,7 +12,7 @@ const scheduleSchema = new Schema({
 
 const daySchema = new mongoose.Schema({
   title: String,
-  schedules: [{scheduleSchema}],
+  schedules: [scheduleSchema],
 },{
   timestamps: true,
 })
