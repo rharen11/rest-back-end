@@ -19,9 +19,20 @@ const create = async (req, res) => {
   }
 }
 
+function deleteOne(req, res){
+  Project.findByIdAndDelete(req.params.id)
+  .then(deletedProject => {
+    res.json(deletedProject)
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
+}
 
 
 export { 
   index,
-  create
+  create,
+  deleteOne as delete
 }

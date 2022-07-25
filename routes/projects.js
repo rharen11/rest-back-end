@@ -11,6 +11,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, projectsCtrl.index)
 router.post('/', checkAuth, projectsCtrl.create)
+router.delete('/:id', checkAuth, projectsCtrl.delete)
 
 
 export { router }
