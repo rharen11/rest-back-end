@@ -2,7 +2,12 @@ import { Project } from '../models/project.js'
 
 
 function index(req, res) {
-
+  Project.find({})
+  .then(projects => res.json(projects))
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
 }
 
 const create = async (req, res) => {
