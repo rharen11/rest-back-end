@@ -3,6 +3,7 @@ import { v2 as cloudinary } from 'cloudinary'
 
 function index(req, res) {
   Profile.find({})
+  .populate('projects')
   .then(profiles => res.json(profiles))
   .catch(err => {
     console.log(err)

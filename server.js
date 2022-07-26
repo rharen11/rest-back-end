@@ -7,7 +7,7 @@ import formData from 'express-form-data'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as projectsRouter } from './routes/projects.js'
-import { router as daysRouter } from './routes/days.js'
+
 
 import './config/database.js'
 
@@ -21,7 +21,7 @@ app.use(formData.parse())
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/projects', projectsRouter)
-app.use('/api/days', daysRouter)
+
 
 
 app.use(function (req, res, next) {
