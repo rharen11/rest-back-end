@@ -30,4 +30,25 @@ function addPhoto(req, res) {
   })
 }
 
-export { index, addPhoto }
+const projectCreate = async (req, res) => {
+  console.log(req.body.author)
+  console.log(req.params.id, "USEERRRRRRRRRR")
+  try {
+    req.body.author = req.user.profile
+    const project = await Project.create(req.body)
+    await Profile.updateOne(
+      {_id: req.user.profile},
+      {$push: {projects: project}}
+    )
+    res.status(201).json(project)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+
+} 
+
+export { 
+  index, 
+  addPhoto,
+  projectCreate 
+}
