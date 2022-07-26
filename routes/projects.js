@@ -6,7 +6,7 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 router.get('/', projectsCtrl.index)
-// router.post('/', projectsCtrl.create)
+router.post('/', projectsCtrl.create)
 router.delete('/:id', projectsCtrl.delete)
 router.get('/:id/days', projectsCtrl.dayIndex)
 router.post('/:id/days', projectsCtrl.dayCreate)
