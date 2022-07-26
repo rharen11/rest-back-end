@@ -5,7 +5,7 @@ import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 const router = Router()
 
 /*---------- Public Routes ----------*/
-
+router.post('/:id/projects', profilesCtrl.projectCreate)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
