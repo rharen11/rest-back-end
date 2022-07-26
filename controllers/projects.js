@@ -13,32 +13,14 @@ function index(req, res) {
   })
 }
 
-// const create = async (req, res) => {
-//   console.log(req.body)
-//   try {
-//     const project = await Project.create(req.body)
-//     res.status(201).json(project)
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// }
-
-// const create = async (req, res) => {
-//   console.log(req.body.author)
-//   console.log(req.params.id, "USEERRRRRRRRRR")
-//   try {
-//     req.body.author = req.user.profile
-//     const project = await Project.create(req.body)
-//     await Profile.updateOne(
-//       {_id: req.user.profile},
-//       {$push: {projects: project}}
-//     )
-//     res.status(201).json(project)
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-
-// } 
+const create = async (req, res) => {
+  try {
+    const project = await Project.create(req.body)
+    res.status(201).json(project)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
 
 function deleteOne(req, res){
   Project.findByIdAndDelete(req.params.id)
@@ -136,7 +118,7 @@ function dayShow(req, res){
 
 export { 
   index,
-  // create,
+  create,
   deleteOne as delete,
   show,
   dayIndex,
