@@ -39,4 +39,6 @@ function addPhoto(req, res) {
   })
 }
 
-export { index, addPhoto, create }
+export{
+  addPhoto, index, create
+}

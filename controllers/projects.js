@@ -13,31 +13,14 @@ function index(req, res) {
   })
 }
 
-// const create = async (req, res) => {
-//   try {
-//     const project = await Project.create(req.body)
-//     res.status(201).json(project)
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// }
-
-function create(req, res){
-  console.log(req.user.profile)
-  // req.body.author = req.user.profile
-  // console.log(req.user)
-  // Project.create(req.body)
-  // .then(project => {
-  //   Project.findById(project._id)
-  //   .populate('author')
-  //   .then((populatedProject)=> res.json(populatedProject))
-
-  //   })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.status(500).json(err)
-  // })
-} 
+const create = async (req, res) => {
+  try {
+    const project = await Project.create(req.body)
+    res.status(201).json(project)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
 
 function deleteOne(req, res){
   Project.findByIdAndDelete(req.params.id)
