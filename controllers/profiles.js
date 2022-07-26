@@ -11,15 +11,6 @@ function index(req, res) {
   })
 }
 
-const create = async (req, res) => {
-  try {
-    const project = await Project.create(req.body)
-    res.status(201).json(project)
-  } catch (err) {
-    res.status(500).json(err)
-  }
-}
-
 function addPhoto(req, res) {
   const imageFile = req.files.photo.path
   Profile.findById(req.params.id)
@@ -39,6 +30,8 @@ function addPhoto(req, res) {
   })
 }
 
-export{
-  addPhoto, index, create
+
+export { 
+  index, 
+  addPhoto
 }
