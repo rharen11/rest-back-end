@@ -23,19 +23,20 @@ function index(req, res) {
 // }
 
 function create(req, res){
-  req.body.author = req.user.profile
-  console.log(req.user)
-  Project.create(req.body)
-  .then(project => {
-    Project.findById(project._id)
-    .populate('author')
-    .then((populatedProject)=> res.json(populatedProject))
+  console.log(req.user.profile)
+  // req.body.author = req.user.profile
+  // console.log(req.user)
+  // Project.create(req.body)
+  // .then(project => {
+  //   Project.findById(project._id)
+  //   .populate('author')
+  //   .then((populatedProject)=> res.json(populatedProject))
 
-    })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json(err)
-  })
+  //   })
+  // .catch(err => {
+  //   console.log(err)
+  //   res.status(500).json(err)
+  // })
 } 
 
 function deleteOne(req, res){
