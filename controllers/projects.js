@@ -3,7 +3,6 @@ import { Project } from '../models/project.js'
 
 function index(req, res) {
   Project.find({})
-  // .populate('days')
   .then(projects => res.json(projects))
   .catch(err => {
     console.log(err)
@@ -34,7 +33,6 @@ function deleteOne(req, res){
 
 function show(req, res){
   Project.findById(req.params.id)
-  .populate('days')
   .then(project => {project})
   .catch(err => {
     console.log(err)
