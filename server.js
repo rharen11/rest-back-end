@@ -7,6 +7,7 @@ import formData from 'express-form-data'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as projectsRouter } from './routes/projects.js'
+import { router as tasksRouter } from './routes/tasks.js'
 
 
 import './config/database.js'
@@ -21,6 +22,7 @@ app.use(formData.parse())
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/projects', projectsRouter)
+app.use('/api/tasks', tasksRouter)
 
 
 
