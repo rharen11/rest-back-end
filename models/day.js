@@ -4,15 +4,15 @@ const Schema = mongoose.Schema
 
 const scheduleSchema = new Schema({
   item: String,
-  time: String,
-  author: String
+  time: String
 }, {
   timestamps: true
 })
 
 const daySchema = new mongoose.Schema({
   title: String,
-  schedules: [scheduleSchema],
+  schedules: [{scheduleSchema}],
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'}
 },{
   timestamps: true,
 })
