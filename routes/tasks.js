@@ -1,13 +1,14 @@
 import { decodeUserFromToken } from '../middleware/auth.js'
 import { Router } from 'express'
-import * as projectsCtrl from '../controllers/projects.js'
+import * as tasksCtrl from '../controllers/tasks.js'
 
 const router = Router()
 
 /*---------- Public Routes ----------*/
-router.get('/', projectsCtrl.index)
-router.post('/', projectsCtrl.create)
-router.delete('/:id', projectsCtrl.delete)
+
+router.get('/', tasksCtrl.index)
+router.post('/', tasksCtrl.create)
+router.post('/:id', tasksCtrl.show)
 
 
 /*---------- Protected Routes ----------*/

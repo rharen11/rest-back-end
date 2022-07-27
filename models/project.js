@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const projectSchema = new mongoose.Schema({
   title: String,
   isDone: Boolean,
-  days: [{type: Schema.Types.ObjectId, ref: 'Day'}],
+  tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}],
   author: {type: Schema.Types.ObjectId, ref: 'Profile'}
 },{
   timestamps: true,
